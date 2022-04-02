@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //fucion larga cumple la misma funcion de la taimer solo cambia la sintaxis
+        // setTimeout(mostrarMensaje, 3000);
+        
+        // function mostrarMensaje() {
+        //     alert("Tiempo!!")   
+        // }
+        //lo muestra una ves
+        setTimeout(()=>alert("tiempo completo", 3000)); 
+        // lo muestra en intervalos de tiempo
+        var timer=setInterval(()=>alert("cada intervalo", 1000));
+        
+        setTimeout(()=>{
+            clearInterval(timer)    
+        },10*1000)
+        
+    </script>
+</body>
+</html>
