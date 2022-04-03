@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<b>Nombre del post: </b><span id="txtNombrePost"></span><br>
+<b>¿Esta Completo?</b><span id="txtCompleto"></span><br>
+
+
+    <script>
+
+
+        function cargarJson(params) {
+            fetch('http://jsonplaceholder.typicode.com/todos/1')
+                .then(response => response.json())
+                .then(jsonCargado);
+        }
+        function jsonCargado(json) {
+            let spanNombrePost = document.getElementById("txtNombrePost");
+            spanNombrePost.innerText=" ☺"+json.title;
+
+             let spanCompleto= document.getElementById("txtCompleto");
+             if (json.completed){
+                 spanCompleto.innerText="  Está completo"
+             }else{
+                 spanCompleto.innerText="  Está incompleto"
+             }
+             //otra forma de hacer un if mas corto es :
+            //  spanCompleto.innerText= json.completed? "Está completo": "Está incompleto";
+            console.log(json);
+        }
+
+        cargarJson();
+    </script>
+</body>
+
+</html>
