@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .reloj {
+                font-size: 3em;
+                font-family: fantasy;
+                color: cyan; 
+                text-align: center;
+                -webkit-animation: reloj 1s ease-in-out infinite alternate;
+                -moz-animation: reloj 1s ease-in-out infinite alternate;
+                animation: reloj 1s ease-in-out infinite alternate;
+            }
+
+            @-webkit-keyframes reloj {
+                from {
+                    text-shadow: 0 0 10px rgb(240, 238, 238), 0 0 20px rgb(8, 8, 8), 0 0 30px #000fe6, 0 0 40px cyan, 0 0 50px cyan, 0 0 60px cyan, 0 0 70px cyan;
+                }
+
+                to {
+                    text-shadow: 0 0 20px rgb(10, 10, 10), 0 0 30px #06cbfc, 0 0 40px #06cbfc, 0 0 50px #06cbfc, 0 0 60px hsl(231, 89%, 21%), 0 0 70px hsl(231, 89%, 21%), 0 0 80px hsl(231, 89%, 21%);
+                }
+            }
+    </style>
+</head>
+
+<body>
+    
+    <div class="reloj">
+    <!-- aca se muestra el resultado de nuestra funcion setInterval -->
+    </div>
+<script>
+    setInterval(()=>{
+        var reloj = document.getElementsByClassName("reloj")[0];
+        var tiempoActual = new Date();
+        var hora = tiempoActual.getHours();
+        if (hora < 10) {
+            hora = `0${hora}`            
+        }
+        var minutos = tiempoActual.getMinutes();
+        if (minutos < 10) {
+            minutos = `0${minutos}`            
+        }
+        var segundos = tiempoActual.getSeconds();
+        if (segundos < 10) {
+            segundos = `0${segundos}`            
+        }
+        // aca asigno y concateno el resultado del las variables hora minutos y segundos con ceros concatenados
+        reloj.innerHTML = `${hora}:${minutos}:${segundos}`
+        
+    },1000)
+
+</script>
+</body>
+
+</html>
